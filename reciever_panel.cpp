@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     while (true) {
         uint16_t nb_rx = rte_eth_rx_burst(0, 0, bufs, 32);
         for (int i = 0; i < nb_rx; i++) {
-            // Extract the payload (assuming your "signal" is in the UDP payload)
+            // Extract the payload 
             uint8_t *payload = rte_pktmbuf_mtod_offset(bufs[i], uint8_t*, 42); // Skip ETH+IP+UDP headers
             uint16_t signal_data = *(uint16_t*)payload;
             

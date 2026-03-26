@@ -4,7 +4,7 @@
 
 // Your existing logic wrapped for DPDK
 void process_signal_bitwise(uint16_t input) {
-    // [Your bitwise logic here]
+    // [bitwise logic here]
     // Example: if (input & 0x01) { ... }
 }
 
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     rte_eal_init(argc, argv);
     struct rte_mempool *mbuf_pool = rte_pktmbuf_pool_create("MBUF_POOL", 8191, 250, 0, RTE_MBUF_DEFAULT_BUF_SIZE, rte_socket_id());
 
-    // 2. Poll Loop (The "Heart" of the receiver)
+    // 2. Poll Loop 
     struct rte_mbuf *bufs[32];
     while (true) {
         uint16_t nb_rx = rte_eth_rx_burst(0, 0, bufs, 32);
